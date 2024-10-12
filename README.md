@@ -1,0 +1,7 @@
+My nix config
+Still need to learn:
+
+- Flakes
+- home-manager
+
+Will put screenshots once I feel my config is in a good spot
