@@ -1,4 +1,4 @@
-My nix config
+My NixOS config
 
 Still need to learn:
 
