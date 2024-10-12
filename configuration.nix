@@ -178,9 +178,18 @@
       osu-lazer-bin
       appimage-run
       icu
+      mysql
+      mongodb-compass
+      nodejs_22
     #  thunderbird
     ];
   };
+
+
+
+ # SQL Stuff
+ services.mysql.enable = true;
+ services.mysql.package = pkgs.mysql;
 
 
   # Install steam.
