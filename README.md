@@ -1,4 +1,5 @@
 My nix config
+
 Still need to learn:
 
 - Flakes
