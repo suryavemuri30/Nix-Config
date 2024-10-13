@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-master, inputs,  ... }:
 
 {
   imports =
@@ -142,32 +142,37 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.suryav = {
     isNormalUser = true;
     description = "Surya Vemuri";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      fastfetch
-      mpv
-      furnace
-      vesktop
-      qbittorrent
-      brave
-      easyeffects
-      onlyoffice-bin
-      obsidian
-      git
-      prismlauncher
-      lshw
-      bottles
-      rar
-      vscode
-      php
-      mysql
-      mongodb-compass
-      nodejs_22
-      switcheroo-control
+    packages = [
+      pkgs.fastfetch
+      pkgs.mpv
+      pkgs.furnace
+      pkgs.vesktop
+      pkgs.qbittorrent
+      pkgs.brave
+      pkgs.easyeffects
+      pkgs.onlyoffice-bin
+      pkgs.obsidian
+      pkgs.git
+      pkgs.prismlauncher
+      pkgs.lshw
+      pkgs.bottles
+      pkgs.rar
+      pkgs.vscode
+      pkgs.php
+      pkgs.mysql
+      pkgs.mongodb-compass
+      pkgs.nodejs_22
+      pkgs.switcheroo-control
+      pkgs.calibre
+      pkgs-master.osu-lazer-bin
     #  thunderbird
     ];
   };
